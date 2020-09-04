@@ -1,0 +1,27 @@
+{
+  "dataSources": [
+    "conData"
+  ],
+  "generator": "@radzen/blazor-server",
+  "https": false,
+  "layouts": [
+    "Login",
+    "Main"
+  ],
+  "logo": "",
+  "name": "InsertStoredProcDemo",
+  "navigation": [
+    "Markets"
+  ],
+  "pages": [
+    "Markets",
+    "Add Market",
+    "Edit Market",
+    "AddMarketADONet"
+  ],
+  "serverLang": "cs",
+  "serverProject": true,
+  "serverVersion": "3",
+  "startPage": "Markets",
+  "theme": "default"
+}

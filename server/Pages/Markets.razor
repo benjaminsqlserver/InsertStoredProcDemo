@@ -1,0 +1,40 @@
+﻿@page "/"
+@page "/markets"
+@layout MainLayout
+@inherits InsertStoredProcDemo.Pages.MarketsComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using InsertStoredProcDemo.Models.ConData
+<RadzenContent Container="main">
+  <ChildContent>
+    <RadzenHeading Size="H1" Text="Markets">
+    </RadzenHeading>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px" Text="Add" Click="@Button0Click">
+        </RadzenButton>
+        <RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px; margin-left: 10px" Text="Add Using ADO.NET" Click="@Button1Click">
+        </RadzenButton>
+        <RadzenGrid @ref="grid0" AllowFiltering="true" AllowPaging="true" AllowSorting="true" Data="@getMarketsResult" TItem="InsertStoredProcDemo.Models.ConData.Market" RowSelect="@Grid0RowSelect">
+          <Columns>
+            <RadzenGridColumn TItem="InsertStoredProcDemo.Models.ConData.Market" Property="MarketListID" Title="Market List ID">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="InsertStoredProcDemo.Models.ConData.Market" Property="MarketName" Title="Market Name">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="InsertStoredProcDemo.Models.ConData.Market" Property="MarketLocation" Title="Market Location">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="InsertStoredProcDemo.Models.ConData.Market" Property="MarketSizeInHectares" Title="Market Size In Hectares">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="InsertStoredProcDemo.Models.ConData.Market" Filterable="false" Sortable="false" TextAlign="TextAlign.Center" Width="70px">
+              <Template Context="insertStoredProcDemoModelsConDataMarket">
+                <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) =>GridDeleteButtonClick(args, insertStoredProcDemoModelsConDataMarket))" @onclick:stopPropagation="true">
+                </RadzenButton>
+              </Template>
+            </RadzenGridColumn>
+          </Columns>
+        </RadzenGrid>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>
